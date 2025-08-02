@@ -1,15 +1,34 @@
+// setInterval(() =>{
+//    d = new Date();
+//    htime = d.getHours();
+//    mtime = d.getMinutes();
+//    stime = d.getSeconds();
+//    hrotation = 30*htime + mtime/2;
+//    mrotation = 6*mtime;
+//    srotation = 6*stime;
+
+
+//    hour.style.transfrom = `rotate(${hrotation}deg)`;
+//    mintues.style.transfrom = `rotate(${mrotation}deg)`;
+//    second.style.transfrom = `rotate(${srotation}deg)`;
+// }, 1000);
+
 setInterval(() => {
-    const now = new Date();
+    let d = new Date();
+    let htime = d.getHours();
+    let mtime = d.getMinutes();   // ✅ spelling fix
+    let stime = d.getSeconds();
 
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
+    let hrotation = 30 * htime + mtime / 2;
+    let mrotation = 6 * mtime;
+    let srotation = 6 * stime;
 
-    const hourRotation = 30 * hours + minutes / 2;       // hour hand: 30° per hour + extra by minute
-    const minuteRotation = 6 * minutes + seconds / 10;   // minute hand: 6° per min + extra by second
-    const secondRotation = 6 * seconds;                  // second hand: 6° per second
+    let hour = document.getElementById("hour");
+    let mintues = document.getElementById("mintues");
+    let second = document.getElementById("second");
 
-    document.getElementById('hour').style.transform = `rotate(${hourRotation}deg)`;
-    document.getElementById('minutes').style.transform = `rotate(${minuteRotation}deg)`;
-    document.getElementById('second').style.transform = `rotate(${secondRotation}deg)`;
+    hour.style.transform = `rotate(${hrotation}deg)`;     // ✅ spelling fix
+    mintues.style.transform = `rotate(${mrotation}deg)`;  // ✅ spelling fix
+    second.style.transform = `rotate(${srotation}deg)`;   // ✅ spelling fix
 }, 1000);
+
